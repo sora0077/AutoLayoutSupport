@@ -122,6 +122,42 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
 // MARK: additional support for (width: NSLayoutDimension, height: NSLayoutDimension)
 public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLayoutDimension) {
     @discardableResult
+    func equal(to size: CGSize,
+               priority: LayoutPriority = .required,
+               file: StaticString = #file,
+               line: UInt = #line
+        ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+        return (
+            DimensionLayout(anchors: anchors.width).equal(to: size.width, priority: priority, file: file, line: line),
+            DimensionLayout(anchors: anchors.height).equal(to: size.height, priority: priority, file: file, line: line)
+        )
+    }
+
+    @discardableResult
+    func greaterThanOrEqual(to size: CGSize,
+                            priority: LayoutPriority = .required,
+                            file: StaticString = #file,
+                            line: UInt = #line
+        ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+        return (
+            DimensionLayout(anchors: anchors.width).greaterThanOrEqual(to: size.width, priority: priority, file: file, line: line),
+            DimensionLayout(anchors: anchors.height).greaterThanOrEqual(to: size.height, priority: priority, file: file, line: line)
+        )
+    }
+
+    @discardableResult
+    func lessThanOrEqual(to size: CGSize,
+                         priority: LayoutPriority = .required,
+                         file: StaticString = #file,
+                         line: UInt = #line
+        ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+        return (
+            DimensionLayout(anchors: anchors.width).lessThanOrEqual(to: size.width, priority: priority, file: file, line: line),
+            DimensionLayout(anchors: anchors.height).lessThanOrEqual(to: size.height, priority: priority, file: file, line: line)
+        )
+    }
+
+    @discardableResult
     func equal(to other: Layout<Anchors>,
                multiplier: CGFloat = 1,
                insets: (x: CGFloat, y: CGFloat),
