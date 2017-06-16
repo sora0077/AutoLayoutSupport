@@ -11,7 +11,11 @@ import Foundation
 // MARK: - (x: NSLayoutXAxisAnchor, y: NSLayoutYAxisAnchor)
 public extension Layout where Anchors == (x: NSLayoutXAxisAnchor, y: NSLayoutYAxisAnchor) {
     @discardableResult
-    func equal(to other: Layout, constant: CGFloat = 0, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func equal(to other: Layout,
+               constant: CGFloat = 0,
+               priority: LayoutPriority = .required,
+               file: StaticString = #file,
+               line: UInt = #line
         ) -> (x: NSLayoutConstraint, y: NSLayoutConstraint) {
         return (
             XLayout(anchors: anchors.x).equal(to: XLayout(anchors: other.anchors.x), constant: constant, file: file, line: line),
@@ -20,7 +24,11 @@ public extension Layout where Anchors == (x: NSLayoutXAxisAnchor, y: NSLayoutYAx
     }
 
     @discardableResult
-    func greaterThanOrEqual(to other: Layout, constant: CGFloat = 0, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func greaterThanOrEqual(to other: Layout,
+                            constant: CGFloat = 0,
+                            priority: LayoutPriority = .required,
+                            file: StaticString = #file,
+                            line: UInt = #line
         ) -> (x: NSLayoutConstraint, y: NSLayoutConstraint) {
         return (
             XLayout(anchors: anchors.x).greaterThanOrEqual(to: XLayout(anchors: other.anchors.x), constant: constant, file: file, line: line),
@@ -29,7 +37,11 @@ public extension Layout where Anchors == (x: NSLayoutXAxisAnchor, y: NSLayoutYAx
     }
 
     @discardableResult
-    func lessThanOrEqual(to other: Layout, constant: CGFloat = 0, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func lessThanOrEqual(to other: Layout,
+                         constant: CGFloat = 0,
+                         priority: LayoutPriority = .required,
+                         file: StaticString = #file,
+                         line: UInt = #line
         ) -> (x: NSLayoutConstraint, y: NSLayoutConstraint) {
         return (
             XLayout(anchors: anchors.x).lessThanOrEqual(to: XLayout(anchors: other.anchors.x), constant: constant, file: file, line: line),

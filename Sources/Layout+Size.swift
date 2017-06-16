@@ -11,7 +11,12 @@ import Foundation
 // MARK: - (width: NSLayoutDimension, height: NSLayoutDimension)
 public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLayoutDimension) {
     @discardableResult
-    func equal(to other: Layout, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func equal(to other: Layout,
+               multiplier: CGFloat = 1,
+               constant: CGFloat = 0,
+               priority: LayoutPriority = .required,
+               file: StaticString = #file,
+               line: UInt = #line
         ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
             DimensionLayout(anchors: anchors.width).equal(
@@ -28,7 +33,11 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
     }
 
     @discardableResult
-    func equal(to constant: CGFloat, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+    func equal(to constant: CGFloat,
+               priority: LayoutPriority = .required,
+               file: StaticString = #file,
+               line: UInt = #line
+        ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
             DimensionLayout(anchors: anchors.width).equal(to: constant, file: file, line: line),
             DimensionLayout(anchors: anchors.height).equal(to: constant, file: file, line: line)
@@ -36,7 +45,12 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
     }
 
     @discardableResult
-    func greaterThanOrEqual(to other: Layout, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func greaterThanOrEqual(to other: Layout,
+                            multiplier: CGFloat = 1,
+                            constant: CGFloat = 0,
+                            priority: LayoutPriority = .required,
+                            file: StaticString = #file,
+                            line: UInt = #line
         ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
             DimensionLayout(anchors: anchors.width).greaterThanOrEqual(
@@ -53,7 +67,11 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
     }
 
     @discardableResult
-    func greaterThanOrEqual(to constant: CGFloat, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+    func greaterThanOrEqual(to constant: CGFloat,
+                            priority: LayoutPriority = .required,
+                            file: StaticString = #file,
+                            line: UInt = #line
+        ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
             DimensionLayout(anchors: anchors.width).greaterThanOrEqual(to: constant, file: file, line: line),
             DimensionLayout(anchors: anchors.height).greaterThanOrEqual(to: constant, file: file, line: line)
@@ -61,7 +79,12 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
     }
 
     @discardableResult
-    func lessThanOrEqual(to other: Layout, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func lessThanOrEqual(to other: Layout,
+                         multiplier: CGFloat = 1,
+                         constant: CGFloat = 0,
+                         priority: LayoutPriority = .required,
+                         file: StaticString = #file,
+                         line: UInt = #line
         ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
             DimensionLayout(anchors: anchors.width).lessThanOrEqual(
@@ -78,7 +101,11 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
     }
 
     @discardableResult
-    func lessThanOrEqual(to constant: CGFloat, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+    func lessThanOrEqual(to constant: CGFloat,
+                         priority: LayoutPriority = .required,
+                         file: StaticString = #file,
+                         line: UInt = #line
+        ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
             DimensionLayout(anchors: anchors.width).lessThanOrEqual(to: constant, file: file, line: line),
             DimensionLayout(anchors: anchors.height).lessThanOrEqual(to: constant, file: file, line: line)
@@ -89,7 +116,12 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
 // MARK: additional support for (width: NSLayoutDimension, height: NSLayoutDimension)
 public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLayoutDimension) {
     @discardableResult
-    func equal(to other: Layout<Anchors>, multiplier: CGFloat = 1, insets: (x: CGFloat, y: CGFloat), priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func equal(to other: Layout<Anchors>,
+               multiplier: CGFloat = 1,
+               insets: (x: CGFloat, y: CGFloat),
+               priority: LayoutPriority = .required,
+               file: StaticString = #file,
+               line: UInt = #line
         ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
             DimensionLayout(anchors: anchors.width).equal(

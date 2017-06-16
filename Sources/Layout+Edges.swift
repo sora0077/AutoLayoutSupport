@@ -18,7 +18,11 @@ import Foundation
 // MARK: - (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor)
 public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor) {
     @discardableResult
-    func equal(to other: Layout<Anchors>, constant: CGFloat = 0, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func equal(to other: Layout<Anchors>,
+               constant: CGFloat = 0,
+               priority: LayoutPriority = .required,
+               file: StaticString = #file,
+               line: UInt = #line
         ) -> (top: NSLayoutConstraint, left: NSLayoutConstraint, bottom: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
             YLayout(anchors: anchors.top).equal(to: YLayout(anchors: other.anchors.top), constant: constant, file: file, line: line),
@@ -29,7 +33,11 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
     }
 
     @discardableResult
-    func greaterThanOrEqual(to other: Layout, constant: CGFloat = 0, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func greaterThanOrEqual(to other: Layout,
+                            constant: CGFloat = 0,
+                            priority: LayoutPriority = .required,
+                            file: StaticString = #file,
+                            line: UInt = #line
         ) -> (top: NSLayoutConstraint, left: NSLayoutConstraint, bottom: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
             YLayout(anchors: anchors.top).greaterThanOrEqual(to: YLayout(anchors: other.anchors.top), constant: constant, file: file, line: line),
@@ -40,7 +48,11 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
     }
 
     @discardableResult
-    func lessThanOrEqual(to other: Layout, constant: CGFloat = 0, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func lessThanOrEqual(to other: Layout,
+                         constant: CGFloat = 0,
+                         priority: LayoutPriority = .required,
+                         file: StaticString = #file,
+                         line: UInt = #line
         ) -> (top: NSLayoutConstraint, left: NSLayoutConstraint, bottom: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
             YLayout(anchors: anchors.top).lessThanOrEqual(to: YLayout(anchors: other.anchors.top), constant: constant, file: file, line: line),
@@ -54,7 +66,11 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
 // MARK: additional support for (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor)
 public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor) {
     @discardableResult
-    func equal(to other: Layout<Anchors>, insets: EdgeInsets, priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func equal(to other: Layout<Anchors>,
+               insets: EdgeInsets,
+               priority: LayoutPriority = .required,
+               file: StaticString = #file,
+               line: UInt = #line
         ) -> (top: NSLayoutConstraint, left: NSLayoutConstraint, bottom: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
             YLayout(anchors: anchors.top).equal(to: YLayout(anchors: other.anchors.top), constant: insets.top, file: file, line: line),
@@ -65,7 +81,11 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
     }
 
     @discardableResult
-    func equal(to other: Layout<Anchors>, insets: (x: CGFloat, y: CGFloat), priority: LayoutPriority = .required, file: StaticString = #file, line: UInt = #line
+    func equal(to other: Layout<Anchors>,
+               insets: (x: CGFloat, y: CGFloat),
+               priority: LayoutPriority = .required,
+               file: StaticString = #file,
+               line: UInt = #line
         ) -> (top: NSLayoutConstraint, left: NSLayoutConstraint, bottom: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
             YLayout(anchors: anchors.top).equal(to: YLayout(anchors: other.anchors.top), constant: insets.y, file: file, line: line),
