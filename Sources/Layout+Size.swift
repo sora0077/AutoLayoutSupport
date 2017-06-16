@@ -23,11 +23,13 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
                 to: DimensionLayout(anchors: other.anchors.width),
                 multiplier: multiplier,
                 constant: constant,
+                priority: priority,
                 file: file, line: line),
             DimensionLayout(anchors: anchors.height).equal(
                 to: DimensionLayout(anchors: other.anchors.height),
                 multiplier: multiplier,
                 constant: constant,
+                priority: priority,
                 file: file, line: line)
         )
     }
@@ -39,8 +41,8 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
                line: UInt = #line
         ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
-            DimensionLayout(anchors: anchors.width).equal(to: constant, file: file, line: line),
-            DimensionLayout(anchors: anchors.height).equal(to: constant, file: file, line: line)
+            DimensionLayout(anchors: anchors.width).equal(to: constant, priority: priority, file: file, line: line),
+            DimensionLayout(anchors: anchors.height).equal(to: constant, priority: priority, file: file, line: line)
         )
     }
 
@@ -57,11 +59,13 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
                 to: DimensionLayout(anchors: other.anchors.width),
                 multiplier: multiplier,
                 constant: constant,
+                priority: priority,
                 file: file, line: line),
             DimensionLayout(anchors: anchors.height).greaterThanOrEqual(
                 to: DimensionLayout(anchors: other.anchors.height),
                 multiplier: multiplier,
                 constant: constant,
+                priority: priority,
                 file: file, line: line)
         )
     }
@@ -73,8 +77,8 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
                             line: UInt = #line
         ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
-            DimensionLayout(anchors: anchors.width).greaterThanOrEqual(to: constant, file: file, line: line),
-            DimensionLayout(anchors: anchors.height).greaterThanOrEqual(to: constant, file: file, line: line)
+            DimensionLayout(anchors: anchors.width).greaterThanOrEqual(to: constant, priority: priority, file: file, line: line),
+            DimensionLayout(anchors: anchors.height).greaterThanOrEqual(to: constant, priority: priority, file: file, line: line)
         )
     }
 
@@ -91,11 +95,13 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
                 to: DimensionLayout(anchors: other.anchors.width),
                 multiplier: multiplier,
                 constant: constant,
+                priority: priority,
                 file: file, line: line),
             DimensionLayout(anchors: anchors.height).lessThanOrEqual(
                 to: DimensionLayout(anchors: other.anchors.height),
                 multiplier: multiplier,
                 constant: constant,
+                priority: priority,
                 file: file, line: line)
         )
     }
@@ -107,8 +113,8 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
                          line: UInt = #line
         ) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
-            DimensionLayout(anchors: anchors.width).lessThanOrEqual(to: constant, file: file, line: line),
-            DimensionLayout(anchors: anchors.height).lessThanOrEqual(to: constant, file: file, line: line)
+            DimensionLayout(anchors: anchors.width).lessThanOrEqual(to: constant, priority: priority, file: file, line: line),
+            DimensionLayout(anchors: anchors.height).lessThanOrEqual(to: constant, priority: priority, file: file, line: line)
         )
     }
 }
@@ -128,11 +134,13 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
                 to: DimensionLayout(anchors: other.anchors.width),
                 multiplier: multiplier,
                 constant: insets.x,
+                priority: priority,
                 file: file, line: line),
             DimensionLayout(anchors: anchors.height).equal(
                 to: DimensionLayout(anchors: other.anchors.height),
                 multiplier: multiplier,
                 constant: insets.y,
+                priority: priority,
                 file: file, line: line)
         )
     }

@@ -25,10 +25,26 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
                line: UInt = #line
         ) -> (top: NSLayoutConstraint, left: NSLayoutConstraint, bottom: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
-            YLayout(anchors: anchors.top).equal(to: YLayout(anchors: other.anchors.top), constant: constant, file: file, line: line),
-            XLayout(anchors: anchors.left).equal(to: XLayout(anchors: other.anchors.left), constant: constant, file: file, line: line),
-            YLayout(anchors: anchors.bottom).equal(to: YLayout(anchors: other.anchors.bottom), constant: -constant, file: file, line: line),
-            XLayout(anchors: anchors.right).equal(to: XLayout(anchors: other.anchors.right), constant: -constant, file: file, line: line)
+            YLayout(anchors: anchors.top).equal(
+                to: YLayout(anchors: other.anchors.top),
+                constant: constant,
+                priority: priority,
+                file: file, line: line),
+            XLayout(anchors: anchors.left).equal(
+                to: XLayout(anchors: other.anchors.left),
+                constant: constant,
+                priority: priority,
+                file: file, line: line),
+            YLayout(anchors: anchors.bottom).equal(
+                to: YLayout(anchors: other.anchors.bottom),
+                constant: -constant,
+                priority: priority,
+                file: file, line: line),
+            XLayout(anchors: anchors.right).equal(
+                to: XLayout(anchors: other.anchors.right),
+                constant: -constant,
+                priority: priority,
+                file: file, line: line)
         )
     }
 
@@ -40,10 +56,26 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
                             line: UInt = #line
         ) -> (top: NSLayoutConstraint, left: NSLayoutConstraint, bottom: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
-            YLayout(anchors: anchors.top).greaterThanOrEqual(to: YLayout(anchors: other.anchors.top), constant: constant, file: file, line: line),
-            XLayout(anchors: anchors.left).greaterThanOrEqual(to: XLayout(anchors: other.anchors.left), constant: constant, file: file, line: line),
-            YLayout(anchors: anchors.bottom).greaterThanOrEqual(to: YLayout(anchors: other.anchors.bottom), constant: -constant, file: file, line: line),
-            XLayout(anchors: anchors.right).greaterThanOrEqual(to: XLayout(anchors: other.anchors.right), constant: -constant, file: file, line: line)
+            YLayout(anchors: anchors.top).greaterThanOrEqual(
+                to: YLayout(anchors: other.anchors.top),
+                constant: constant,
+                priority: priority,
+                file: file, line: line),
+            XLayout(anchors: anchors.left).greaterThanOrEqual(
+                to: XLayout(anchors: other.anchors.left),
+                constant: constant,
+                priority: priority,
+                file: file, line: line),
+            YLayout(anchors: anchors.bottom).greaterThanOrEqual(
+                to: YLayout(anchors: other.anchors.bottom),
+                constant: -constant,
+                priority: priority,
+                file: file, line: line),
+            XLayout(anchors: anchors.right).greaterThanOrEqual(
+                to: XLayout(anchors: other.anchors.right),
+                constant: -constant,
+                priority: priority,
+                file: file, line: line)
         )
     }
 
@@ -55,10 +87,26 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
                          line: UInt = #line
         ) -> (top: NSLayoutConstraint, left: NSLayoutConstraint, bottom: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
-            YLayout(anchors: anchors.top).lessThanOrEqual(to: YLayout(anchors: other.anchors.top), constant: constant, file: file, line: line),
-            XLayout(anchors: anchors.left).lessThanOrEqual(to: XLayout(anchors: other.anchors.left), constant: constant, file: file, line: line),
-            YLayout(anchors: anchors.bottom).lessThanOrEqual(to: YLayout(anchors: other.anchors.bottom), constant: -constant, file: file, line: line),
-            XLayout(anchors: anchors.right).lessThanOrEqual(to: XLayout(anchors: other.anchors.right), constant: -constant, file: file, line: line)
+            YLayout(anchors: anchors.top).lessThanOrEqual(
+                to: YLayout(anchors: other.anchors.top),
+                constant: constant,
+                priority: priority,
+                file: file, line: line),
+            XLayout(anchors: anchors.left).lessThanOrEqual(
+                to: XLayout(anchors: other.anchors.left),
+                constant: constant,
+                priority: priority,
+                file: file, line: line),
+            YLayout(anchors: anchors.bottom).lessThanOrEqual(
+                to: YLayout(anchors: other.anchors.bottom),
+                constant: -constant,
+                priority: priority,
+                file: file, line: line),
+            XLayout(anchors: anchors.right).lessThanOrEqual(
+                to: XLayout(anchors: other.anchors.right),
+                constant: -constant,
+                priority: priority,
+                file: file, line: line)
         )
     }
 }
@@ -73,10 +121,26 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
                line: UInt = #line
         ) -> (top: NSLayoutConstraint, left: NSLayoutConstraint, bottom: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
-            YLayout(anchors: anchors.top).equal(to: YLayout(anchors: other.anchors.top), constant: insets.top, file: file, line: line),
-            XLayout(anchors: anchors.left).equal(to: XLayout(anchors: other.anchors.left), constant: insets.left, file: file, line: line),
-            YLayout(anchors: anchors.bottom).equal(to: YLayout(anchors: other.anchors.bottom), constant: -insets.bottom, file: file, line: line),
-            XLayout(anchors: anchors.right).equal(to: XLayout(anchors: other.anchors.right), constant: -insets.right, file: file, line: line)
+            YLayout(anchors: anchors.top).equal(
+                to: YLayout(anchors: other.anchors.top),
+                constant: insets.top,
+                priority: priority,
+                file: file, line: line),
+            XLayout(anchors: anchors.left).equal(
+                to: XLayout(anchors: other.anchors.left),
+                constant: insets.left,
+                priority: priority,
+                file: file, line: line),
+            YLayout(anchors: anchors.bottom).equal(
+                to: YLayout(anchors: other.anchors.bottom),
+                constant: -insets.bottom,
+                priority: priority,
+                file: file, line: line),
+            XLayout(anchors: anchors.right).equal(
+                to: XLayout(anchors: other.anchors.right),
+                constant: -insets.right,
+                priority: priority,
+                file: file, line: line)
         )
     }
 
@@ -88,10 +152,26 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
                line: UInt = #line
         ) -> (top: NSLayoutConstraint, left: NSLayoutConstraint, bottom: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
-            YLayout(anchors: anchors.top).equal(to: YLayout(anchors: other.anchors.top), constant: insets.y, file: file, line: line),
-            XLayout(anchors: anchors.left).equal(to: XLayout(anchors: other.anchors.left), constant: insets.x, file: file, line: line),
-            YLayout(anchors: anchors.bottom).equal(to: YLayout(anchors: other.anchors.bottom), constant: -insets.y, file: file, line: line),
-            XLayout(anchors: anchors.right).equal(to: XLayout(anchors: other.anchors.right), constant: -insets.x, file: file, line: line)
+            YLayout(anchors: anchors.top).equal(
+                to: YLayout(anchors: other.anchors.top),
+                constant: insets.y,
+                priority: priority,
+                file: file, line: line),
+            XLayout(anchors: anchors.left).equal(
+                to: XLayout(anchors: other.anchors.left),
+                constant: insets.x,
+                priority: priority,
+                file: file, line: line),
+            YLayout(anchors: anchors.bottom).equal(
+                to: YLayout(anchors: other.anchors.bottom),
+                constant: -insets.y,
+                priority: priority,
+                file: file, line: line),
+            XLayout(anchors: anchors.right).equal(
+                to: XLayout(anchors: other.anchors.right),
+                constant: -insets.x,
+                priority: priority,
+                file: file, line: line)
         )
     }
 }
