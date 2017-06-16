@@ -133,13 +133,13 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
             DimensionLayout(anchors: anchors.width).equal(
                 to: DimensionLayout(anchors: other.anchors.width),
                 multiplier: multiplier,
-                constant: insets.x,
+                constant: -insets.x,
                 priority: priority,
                 file: file, line: line),
             DimensionLayout(anchors: anchors.height).equal(
                 to: DimensionLayout(anchors: other.anchors.height),
                 multiplier: multiplier,
-                constant: insets.y,
+                constant: -insets.y,
                 priority: priority,
                 file: file, line: line)
         )
