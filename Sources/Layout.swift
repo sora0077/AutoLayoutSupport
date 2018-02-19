@@ -13,8 +13,8 @@ public struct Layout<Anchors> {
     let anchors: Anchors
 
     func activate(_ constraint: NSLayoutConstraint, priority: UILayoutPriority, file: StaticString, line: UInt) -> NSLayoutConstraint {
-        if owner?.translatesAutoresizingMaskIntoConstraints == false {
-            owner?.translatesAutoresizingMaskIntoConstraints = true
+        if owner?.translatesAutoresizingMaskIntoConstraints == true {
+            owner?.translatesAutoresizingMaskIntoConstraints = false
         }
         constraint.priority = priority
         constraint.isActive = true
