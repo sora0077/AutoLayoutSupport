@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         let red = UIView(.red)
         view.addSubview(red)
         red.autolayout.size.equal(to: 100)
-        red.autolayout.center.equal(to: view.autolayout.center)
+        red.autolayout.center.equal(to: view)
 
         let blue = UIView(.blue)
         view.addSubview(blue)
