@@ -129,9 +129,9 @@ extension Extension where Base: UILayoutGuide {
     }
 
     // MARK: - composition layout
-//    public var center: Layout<(x: NSLayoutXAxisAnchor, height: NSLayoutYAxisAnchor)> {
-//        return Layout(owner: base.owningView, anchors: (base.centerXAnchor, base.centerYAnchor))
-//    }
+    public var center: Layout<(x: NSLayoutXAxisAnchor, y: NSLayoutYAxisAnchor)> {
+        return Layout(owner: base.owningView, anchors: (base.centerXAnchor, base.centerYAnchor))
+    }
 
     public var size: Layout<(width: NSLayoutDimension, height: NSLayoutDimension)> {
         return Layout(owner: base.owningView, anchors: (base.widthAnchor, base.heightAnchor))
