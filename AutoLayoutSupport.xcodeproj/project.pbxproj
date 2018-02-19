@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D906942D203B3007006356E3 /* AutoLayoutSupport.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D906942C203B3007006356E3 /* AutoLayoutSupport.generated.swift */; };
+		D906942F203B412F006356E3 /* AutoLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D906942E203B412F006356E3 /* AutoLayoutSupport.swift */; };
 		D9488E44203492F4007BD769 /* AutoLayoutSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = D9488E42203492F4007BD769 /* AutoLayoutSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D9488E4C20349339007BD769 /* AutoLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9488E4B20349339007BD769 /* AutoLayoutSupport.swift */; };
 		D9488E4E203493C2007BD769 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9488E4D203493C2007BD769 /* Layout.swift */; };
 		D9488E6B2039AD87007BD769 /* Layout+Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9488E6A2039AD87007BD769 /* Layout+Single.swift */; };
 		D9488E6D2039BA29007BD769 /* Layout+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9488E6C2039BA29007BD769 /* Layout+Size.swift */; };
@@ -17,10 +18,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D906942A203B2F32006356E3 /* AutoLayoutSupport.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AutoLayoutSupport.stencil; sourceTree = "<group>"; };
+		D906942C203B3007006356E3 /* AutoLayoutSupport.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutSupport.generated.swift; sourceTree = "<group>"; };
+		D906942E203B412F006356E3 /* AutoLayoutSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutSupport.swift; sourceTree = "<group>"; };
 		D9488E3F203492F4007BD769 /* AutoLayoutSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AutoLayoutSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9488E42203492F4007BD769 /* AutoLayoutSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayoutSupport.h; sourceTree = "<group>"; };
 		D9488E43203492F4007BD769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9488E4B20349339007BD769 /* AutoLayoutSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutSupport.swift; sourceTree = "<group>"; };
 		D9488E4D203493C2007BD769 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		D9488E6A2039AD87007BD769 /* Layout+Single.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layout+Single.swift"; sourceTree = "<group>"; };
 		D9488E6C2039BA29007BD769 /* Layout+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layout+Size.swift"; sourceTree = "<group>"; };
@@ -39,9 +42,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D9069428203B2D91006356E3 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				D906942A203B2F32006356E3 /* AutoLayoutSupport.stencil */,
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
 		D9488E35203492F4007BD769 = {
 			isa = PBXGroup;
 			children = (
+				D9069428203B2D91006356E3 /* Templates */,
 				D9488E4A20349314007BD769 /* Sources */,
 				D9488E41203492F4007BD769 /* AutoLayoutSupport */,
 				D9488E40203492F4007BD769 /* Products */,
@@ -68,7 +80,8 @@
 		D9488E4A20349314007BD769 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D9488E4B20349339007BD769 /* AutoLayoutSupport.swift */,
+				D906942E203B412F006356E3 /* AutoLayoutSupport.swift */,
+				D906942C203B3007006356E3 /* AutoLayoutSupport.generated.swift */,
 				D9488E4D203493C2007BD769 /* Layout.swift */,
 				D9488E6A2039AD87007BD769 /* Layout+Single.swift */,
 				D9488E6C2039BA29007BD769 /* Layout+Size.swift */,
@@ -96,6 +109,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9488E47203492F4007BD769 /* Build configuration list for PBXNativeTarget "AutoLayoutSupport" */;
 			buildPhases = (
+				D9069429203B2E0E006356E3 /* Run Sourcery */,
 				D9488E3A203492F4007BD769 /* Sources */,
 				D9488E3B203492F4007BD769 /* Frameworks */,
 				D9488E3C203492F4007BD769 /* Headers */,
@@ -153,17 +167,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D9069429203B2E0E006356E3 /* Run Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Sourcery";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D9488E3A203492F4007BD769 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D9488E6D2039BA29007BD769 /* Layout+Size.swift in Sources */,
-				D9488E4C20349339007BD769 /* AutoLayoutSupport.swift in Sources */,
 				D9488E712039C19B007BD769 /* Layout+Edges.swift in Sources */,
 				D9488E6F2039C0BD007BD769 /* Layout+Center.swift in Sources */,
 				D9488E6B2039AD87007BD769 /* Layout+Single.swift in Sources */,
 				D9488E4E203493C2007BD769 /* Layout.swift in Sources */,
+				D906942D203B3007006356E3 /* AutoLayoutSupport.generated.swift in Sources */,
+				D906942F203B412F006356E3 /* AutoLayoutSupport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

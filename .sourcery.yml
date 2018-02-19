@@ -1,0 +1,8 @@
+sources:
+  - Sources
+templates:
+  - Templates
+output:
+  Sources
+args:
+  targets: [UIView, UILayoutGuide]
