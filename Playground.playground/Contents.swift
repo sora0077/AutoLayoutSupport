@@ -27,10 +27,8 @@ class ViewController: UIViewController {
         view.addSubview(blue)
         blue.autolayout.top.equal(to: red.autolayout.bottom, constant: 10)
         blue.autolayout.centerX.equal(to: red.autolayout.centerX)
-        blue.autolayout.size.equal(to: red.autolayout.size, multiplier: 2)
+        blue.autolayout.size.equal(to: red, multiplier: 2)
     }
 }
 
 PlaygroundPage.current.liveView = ViewController()
-
-"aaaaaaa"

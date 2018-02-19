@@ -3,6 +3,6 @@ sources:
 templates:
   - Templates
 output:
-  Sources
+  Sources/generated
 args:
   targets: [UIView, UILayoutGuide]
