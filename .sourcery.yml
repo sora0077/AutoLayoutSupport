@@ -4,5 +4,3 @@ templates:
   - Templates
 output:
   Sources/generated
-args:
-  targets: [UIView, UILayoutGuide]

@@ -8,9 +8,9 @@
 
 import UIKit
 
-{% macro ownerImpl className %}{% if type == "UIView" %}base{% else %}base.owningView{% endif %}{% endmacro %}
-{% for type in argument.targets %}
-extension Extension where Base: {{ type }} {
+{% macro ownerImpl type %}{% if type.name == "UIView" %}base{% else %}base.owningView{% endif %}{% endmacro %}
+{% for type in types.implementing.AutoLayoutSupportCompatible %}
+extension Extension where Base: {{ type.name }} {
     public var top: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: {% call ownerImpl type %}, anchors: base.topAnchor)
     }

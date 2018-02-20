@@ -8,11 +8,11 @@
 
 import Foundation
 
-{% for layout in argument.targets %}
-// MARK: - (x: NSLayoutXAxisAnchor, y: NSLayoutYAxisAnchor) for {{ layout }} shortcut
+{% for type in types.implementing.AutoLayoutSupportCompatible %}
+// MARK: - (x: NSLayoutXAxisAnchor, y: NSLayoutYAxisAnchor) for {{ type.name }} shortcut
 public extension Layout where Anchors == (x: NSLayoutXAxisAnchor, y: NSLayoutYAxisAnchor) {
     @discardableResult
-    func equal(to other: {{ layout }},
+    func equal(to other: {{ type.name }},
                offset: CGPoint = .zero,
                priority: UILayoutPriority = .required,
                file: StaticString = #file,
@@ -23,7 +23,7 @@ public extension Layout where Anchors == (x: NSLayoutXAxisAnchor, y: NSLayoutYAx
     }
 
     @discardableResult
-    func greaterThanOrEqual(to other: {{ layout }},
+    func greaterThanOrEqual(to other: {{ type.name }},
                             offset: CGPoint = .zero,
                             priority: UILayoutPriority = .required,
                             file: StaticString = #file,
@@ -34,7 +34,7 @@ public extension Layout where Anchors == (x: NSLayoutXAxisAnchor, y: NSLayoutYAx
     }
 
     @discardableResult
-    func lessThanOrEqual(to other: {{ layout }},
+    func lessThanOrEqual(to other: {{ type.name }},
                          offset: CGPoint = .zero,
                          priority: UILayoutPriority = .required,
                          file: StaticString = #file,
@@ -46,7 +46,7 @@ public extension Layout where Anchors == (x: NSLayoutXAxisAnchor, y: NSLayoutYAx
 
     // MARK: -
     @discardableResult
-    func equal(to other: {{ layout }},
+    func equal(to other: {{ type.name }},
                offset: CGFloat,
                priority: UILayoutPriority = .required,
                file: StaticString = #file,
@@ -57,7 +57,7 @@ public extension Layout where Anchors == (x: NSLayoutXAxisAnchor, y: NSLayoutYAx
     }
 
     @discardableResult
-    func greaterThanOrEqual(to other: {{ layout }},
+    func greaterThanOrEqual(to other: {{ type.name }},
                             offset: CGFloat,
                             priority: UILayoutPriority = .required,
                             file: StaticString = #file,
@@ -68,7 +68,7 @@ public extension Layout where Anchors == (x: NSLayoutXAxisAnchor, y: NSLayoutYAx
     }
 
     @discardableResult
-    func lessThanOrEqual(to other: {{ layout }},
+    func lessThanOrEqual(to other: {{ type.name }},
                          offset: CGFloat,
                          priority: UILayoutPriority = .required,
                          file: StaticString = #file,

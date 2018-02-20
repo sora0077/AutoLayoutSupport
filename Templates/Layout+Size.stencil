@@ -8,11 +8,11 @@
 
 import Foundation
 
-{% for layout in argument.targets %}
-// MARK: - (width: NSLayoutDimension, height: NSLayoutDimension) for {{ layout }} shortcut
+{% for type in types.implementing.AutoLayoutSupportCompatible %}
+// MARK: - (width: NSLayoutDimension, height: NSLayoutDimension) for {{ type.name }} shortcut
 public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLayoutDimension) {
     @discardableResult
-    func equal(to other: {{ layout }},
+    func equal(to other: {{ type.name }},
                multiplier: CGFloat = 1,
                constant: CGSize = .zero,
                priority: UILayoutPriority = .required,
@@ -24,7 +24,7 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
     }
 
     @discardableResult
-    func greaterThanOrEqual(to other: {{ layout }},
+    func greaterThanOrEqual(to other: {{ type.name }},
                             multiplier: CGFloat = 1,
                             constant: CGSize = .zero,
                             priority: UILayoutPriority = .required,
@@ -36,7 +36,7 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
     }
 
     @discardableResult
-    func lessThanOrEqual(to other: {{ layout }},
+    func lessThanOrEqual(to other: {{ type.name }},
                          multiplier: CGFloat = 1,
                          constant: CGSize = .zero,
                          priority: UILayoutPriority = .required,
@@ -49,7 +49,7 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
 
     // MARK: -
     @discardableResult
-    func equal(to other: {{ layout }},
+    func equal(to other: {{ type.name }},
                multiplier: CGFloat = 1,
                constant: CGFloat,
                priority: UILayoutPriority = .required,
@@ -61,7 +61,7 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
     }
 
     @discardableResult
-    func greaterThanOrEqual(to other: {{ layout }},
+    func greaterThanOrEqual(to other: {{ type.name }},
                             multiplier: CGFloat = 1,
                             constant: CGFloat,
                             priority: UILayoutPriority = .required,
@@ -73,7 +73,7 @@ public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLa
     }
 
     @discardableResult
-    func lessThanOrEqual(to other: {{ layout }},
+    func lessThanOrEqual(to other: {{ type.name }},
                          multiplier: CGFloat = 1,
                          constant: CGFloat,
                          priority: UILayoutPriority = .required,
