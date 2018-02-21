@@ -4,3 +4,7 @@ templates:
   - Templates
 output:
   Sources/generated
+args:
+  xanchors: [left, right, leading, trailing, centerX]
+  yanchors: [top, bottom, centerY]
+  dimanchors: [width, height]
