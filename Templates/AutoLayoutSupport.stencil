@@ -1,0 +1,76 @@
+//
+//  AutoLayoutSupport.generated.swift
+//  AutoLayoutSupport
+//
+//  Created by 林達也 on 2018/02/15.
+//  Copyright © 2018年 林達也. All rights reserved.
+//
+
+import UIKit
+
+{% macro ownerImpl type %}{% if type.name == "UIView" %}base{% else %}base.owningView{% endif %}{% endmacro %}
+{% for type in types.implementing.AutoLayoutSupportCompatible %}
+extension Extension where Base: {{ type.name }} {
+    // for NSLayoutXAxisAnchor
+    {% for anchor in argument.xanchors %}
+    public var {{ anchor }}: Layout<NSLayoutXAxisAnchor> {
+        return Layout(owner: {% call ownerImpl type %}, anchors: base.{{ anchor }}Anchor, keyPaths: [
+        {% for type in types.implementing.AutoLayoutSupportCompatible|reversed %}
+            \{{ type.name }}.{{ anchor }}Anchor{% if not forloop.last %},{% endif %}
+        {% endfor %}
+        ])
+    }
+    {% endfor %}
+    // for NSLayoutYAxisAnchor
+    {% for anchor in argument.yanchors %}
+    public var {{ anchor }}: Layout<NSLayoutYAxisAnchor> {
+        return Layout(owner: {% call ownerImpl type %}, anchors: base.{{ anchor }}Anchor, keyPaths: [
+        {% for type in types.implementing.AutoLayoutSupportCompatible|reversed %}
+            \{{ type.name }}.{{ anchor }}Anchor,
+        {% endfor %}
+        {% if anchor == "top" or anchor == "bottom" %}
+            \UILayoutSupport.{{ anchor }}Anchor
+        {% endif %}
+        ])
+    }
+
+    {% endfor %}
+    {% if type.name == "UIView" %}
+    public var firstBaseline: Layout<NSLayoutYAxisAnchor> {
+        return Layout(owner: {% call ownerImpl type %}, anchors: base.firstBaselineAnchor, keyPaths: [
+            \UIView.firstBaselineAnchor
+        ])
+    }
+    public var lastBaseline: Layout<NSLayoutYAxisAnchor> {
+        return Layout(owner: {% call ownerImpl type %}, anchors: base.lastBaselineAnchor, keyPaths: [
+            \UIView.lastBaselineAnchor
+        ])
+    }
+    {% endif %}
+    // for NSLayoutDimension
+    {% for anchor in argument.dimanchors %}
+    public var {{ anchor }}: Layout<NSLayoutDimension> {
+        return Layout(owner: {% call ownerImpl type %}, anchors: base.{{ anchor }}Anchor, keyPaths: [
+        {% for type in types.implementing.AutoLayoutSupportCompatible|reversed %}
+            \{{ type.name }}.{{ anchor }}Anchor,
+        {% endfor %}
+        {% if anchor == "height" %}
+            \UILayoutSupport.{{ anchor }}Anchor
+        {% endif %}
+        ])
+    }
+    {% endfor %}
+    // MARK: - composition layout
+    public var center: Layout<(x: NSLayoutXAxisAnchor, y: NSLayoutYAxisAnchor)> {
+        return Layout(owner: {% call ownerImpl type %}, anchors: (base.centerXAnchor, base.centerYAnchor))
+    }
+
+    public var size: Layout<(width: NSLayoutDimension, height: NSLayoutDimension)> {
+        return Layout(owner: {% call ownerImpl type %}, anchors: (base.widthAnchor, base.heightAnchor))
+    }
+
+    public var edges: Layout<(top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor)> {
+        return Layout(owner: {% call ownerImpl type %}, anchors: (base.topAnchor, base.leftAnchor, base.bottomAnchor, base.rightAnchor))
+    }
+}
+{% endfor %}

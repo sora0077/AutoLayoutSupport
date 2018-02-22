@@ -11,6 +11,11 @@ import UIKit
 public struct Layout<Anchors> {
     weak var owner: UIView?
     let anchors: Anchors
+    let keyPaths: [AnyKeyPath]
+
+    init(owner: UIView?, anchors: Anchors, keyPaths: [AnyKeyPath] = []) {
+        (self.owner, self.anchors, self.keyPaths) = (owner, anchors, keyPaths)
+    }
 
     func activate(_ constraint: NSLayoutConstraint, priority: UILayoutPriority, file: StaticString, line: UInt) -> NSLayoutConstraint {
         if owner?.translatesAutoresizingMaskIntoConstraints == true {

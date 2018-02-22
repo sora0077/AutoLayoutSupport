@@ -21,16 +21,25 @@ class ViewController: UIViewController {
         let red = UIView(.red)
         view.addSubview(red)
         red.autolayout.size.equal(to: 100)
-        red.autolayout.center.equal(to: view.autolayout.center)
+        red.autolayout.center.equal(to: view)
 
         let blue = UIView(.blue)
         view.addSubview(blue)
         blue.autolayout.top.equal(to: red.autolayout.bottom, constant: 10)
-        blue.autolayout.centerX.equal(to: red.autolayout.centerX)
-        blue.autolayout.size.equal(to: red.autolayout.size, multiplier: 2)
+        blue.autolayout.centerX.equal(to: red, priority: .defaultHigh)
+        blue.autolayout.size.equal(to: red, multiplier: 2)
+
+        let green = UIView(.green)
+        view.addSubview(green)
+        green.autolayout.top.equal(to: topLayoutGuide)
+        green.autolayout.size.equal(to: red, multiplier: 1.2)
+        green.autolayout.left.equal(to: red.autolayout.right, constant: 10)
+
+        let yellow = UIView(.yellow)
+        view.addSubview(yellow)
+        yellow.autolayout.center.equal(to: blue)
+        yellow.autolayout.size.equal(to: CGSize(width: 40, height: 60))
     }
 }
 
 PlaygroundPage.current.liveView = ViewController()
-
-"aaaaaaa"
