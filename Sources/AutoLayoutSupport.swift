@@ -12,6 +12,10 @@ public protocol AutoLayoutSupportCompatible: class {}
 
 public struct Extension<Base> {
     let base: Base
+
+    public func apply(_ closure: (Extension<Base>) -> Void) {
+        closure(self)
+    }
 }
 
 extension AutoLayoutSupportCompatible {

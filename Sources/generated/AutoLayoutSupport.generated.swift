@@ -63,7 +63,7 @@ extension Extension where Base: UILayoutGuide {
     public var centerY: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.centerYAnchor, keyPaths: [
             \UIView.centerYAnchor,
-            \UILayoutGuide.centerYAnchor,
+            \UILayoutGuide.centerYAnchor
         ])
     }
 
@@ -71,7 +71,7 @@ extension Extension where Base: UILayoutGuide {
     public var width: Layout<NSLayoutDimension> {
         return Layout(owner: base.owningView, anchors: base.widthAnchor, keyPaths: [
             \UIView.widthAnchor,
-            \UILayoutGuide.widthAnchor,
+            \UILayoutGuide.widthAnchor
         ])
     }
     public var height: Layout<NSLayoutDimension> {
@@ -146,7 +146,7 @@ extension Extension where Base: UIView {
     public var centerY: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base, anchors: base.centerYAnchor, keyPaths: [
             \UIView.centerYAnchor,
-            \UILayoutGuide.centerYAnchor,
+            \UILayoutGuide.centerYAnchor
         ])
     }
 
@@ -164,7 +164,7 @@ extension Extension where Base: UIView {
     public var width: Layout<NSLayoutDimension> {
         return Layout(owner: base, anchors: base.widthAnchor, keyPaths: [
             \UIView.widthAnchor,
-            \UILayoutGuide.widthAnchor,
+            \UILayoutGuide.widthAnchor
         ])
     }
     public var height: Layout<NSLayoutDimension> {
