@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         view.addSubview(orange)
         orange.autolayout.apply {
             $0.center.equal(to: red)
-            $0.edges.equal(to: red.autolayout.edges, offset: -10)
+            $0.edges.equal(to: red, offset: -10)
         }
     }
 }

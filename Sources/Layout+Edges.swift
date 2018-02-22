@@ -34,7 +34,7 @@ private typealias YLayout = Layout<NSLayoutYAxisAnchor>
 // MARK: - (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor)
 public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor) {
     @discardableResult
-    func equal(to other: Layout<Anchors>,
+    func equal(to other: Layout,
                _ insets: EdgeInsets = .zero,
                priority: UILayoutPriority = .required,
                file: StaticString = #file,
@@ -130,7 +130,7 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
 // MARK: additional support for (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor)
 public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor) {
     @discardableResult
-    func equal(to other: Layout<Anchors>,
+    func equal(to other: Layout,
                offset: CGFloat,
                priority: UILayoutPriority = .required,
                file: StaticString = #file,
@@ -160,7 +160,7 @@ public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayo
     }
 
     @discardableResult
-    func equal(to other: Layout<Anchors>,
+    func equal(to other: Layout,
                offset: (dx: CGFloat, dy: CGFloat),
                priority: UILayoutPriority = .required,
                file: StaticString = #file,

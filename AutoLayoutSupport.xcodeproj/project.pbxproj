@@ -19,6 +19,7 @@
 		D9488E6B2039AD87007BD769 /* Layout+Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9488E6A2039AD87007BD769 /* Layout+Single.swift */; };
 		D9488E6F2039C0BD007BD769 /* Layout+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9488E6E2039C0BD007BD769 /* Layout+Center.swift */; };
 		D9488E712039C19B007BD769 /* Layout+Edges.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9488E702039C19B007BD769 /* Layout+Edges.swift */; };
+		D955BD1C203F1F1D006CD81E /* Layout+Edges.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D955BD1B203F1F1D006CD81E /* Layout+Edges.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		D9488E6C2039BA29007BD769 /* Layout+Size.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Layout+Size.stencil"; sourceTree = "<group>"; };
 		D9488E6E2039C0BD007BD769 /* Layout+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layout+Center.swift"; sourceTree = "<group>"; };
 		D9488E702039C19B007BD769 /* Layout+Edges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layout+Edges.swift"; sourceTree = "<group>"; };
+		D955BD1A203F1D0A006CD81E /* Layout+Edges.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Layout+Edges.stencil"; sourceTree = "<group>"; };
+		D955BD1B203F1F1D006CD81E /* Layout+Edges.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Layout+Edges.generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,7 @@
 				D9084D0C203E473300467F5A /* Layout+Single.stencil */,
 				D9488E6C2039BA29007BD769 /* Layout+Size.stencil */,
 				D9069435203B48A9006356E3 /* Layout+Center.stencil */,
+				D955BD1A203F1D0A006CD81E /* Layout+Edges.stencil */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -70,6 +74,7 @@
 				D9084D0A203E471400467F5A /* Layout+Single.generated.swift */,
 				D9069430203B44A0006356E3 /* Layout+Size.generated.swift */,
 				D9069436203B4964006356E3 /* Layout+Center.generated.swift */,
+				D955BD1B203F1F1D006CD81E /* Layout+Edges.generated.swift */,
 			);
 			path = generated;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				D9488E6B2039AD87007BD769 /* Layout+Single.swift in Sources */,
 				D9488E4E203493C2007BD769 /* Layout.swift in Sources */,
 				D906942D203B3007006356E3 /* AutoLayoutSupport.generated.swift in Sources */,
+				D955BD1C203F1F1D006CD81E /* Layout+Edges.generated.swift in Sources */,
 				D9069437203B4964006356E3 /* Layout+Center.generated.swift in Sources */,
 				D9069431203B44A0006356E3 /* Layout+Size.generated.swift in Sources */,
 				D9084D0B203E471400467F5A /* Layout+Single.generated.swift in Sources */,
