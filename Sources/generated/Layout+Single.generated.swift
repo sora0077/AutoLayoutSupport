@@ -44,7 +44,7 @@ public extension Layout where Anchors == NSLayoutXAxisAnchor {
     }
 }
 
-// MARK: - NSLayoutYAxisAnchor
+// MARK: - NSLayoutYAxisAnchor specialized with UILayoutGuide
 public extension Layout where Anchors == NSLayoutYAxisAnchor {
     @discardableResult
     func equal(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
@@ -77,7 +77,7 @@ public extension Layout where Anchors == NSLayoutYAxisAnchor {
     }
 }
 
-// MARK: - NSLayoutDimension
+// MARK: - NSLayoutDimension specialized with UILayoutGuide
 public extension Layout where Anchors == NSLayoutDimension {
     @discardableResult
     func equal(to other: UILayoutGuide, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = .required,
@@ -142,7 +142,7 @@ public extension Layout where Anchors == NSLayoutXAxisAnchor {
     }
 }
 
-// MARK: - NSLayoutYAxisAnchor
+// MARK: - NSLayoutYAxisAnchor specialized with UIView
 public extension Layout where Anchors == NSLayoutYAxisAnchor {
     @discardableResult
     func equal(to other: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required,
@@ -175,7 +175,7 @@ public extension Layout where Anchors == NSLayoutYAxisAnchor {
     }
 }
 
-// MARK: - NSLayoutDimension
+// MARK: - NSLayoutDimension specialized with UIView
 public extension Layout where Anchors == NSLayoutDimension {
     @discardableResult
     func equal(to other: UIView, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = .required,

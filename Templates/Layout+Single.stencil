@@ -42,7 +42,7 @@ public extension Layout where Anchors == NSLayoutXAxisAnchor {
     }
 }
 
-// MARK: - NSLayoutYAxisAnchor
+// MARK: - NSLayoutYAxisAnchor specialized with {{ type.name }}
 public extension Layout where Anchors == NSLayoutYAxisAnchor {
     @discardableResult
     func equal(to other: {{ type.name }}, constant: CGFloat = 0, priority: UILayoutPriority = .required,
@@ -75,7 +75,7 @@ public extension Layout where Anchors == NSLayoutYAxisAnchor {
     }
 }
 
-// MARK: - NSLayoutDimension
+// MARK: - NSLayoutDimension specialized with {{ type.name }}
 public extension Layout where Anchors == NSLayoutDimension {
     @discardableResult
     func equal(to other: {{ type.name }}, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = .required,
