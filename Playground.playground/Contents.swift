@@ -26,8 +26,19 @@ class ViewController: UIViewController {
         let blue = UIView(.blue)
         view.addSubview(blue)
         blue.autolayout.top.equal(to: red.autolayout.bottom, constant: 10)
-        blue.autolayout.centerX.equal(to: red.autolayout.centerX)
+        blue.autolayout.centerX.equal(to: red, priority: .defaultHigh)
         blue.autolayout.size.equal(to: red, multiplier: 2)
+
+        let green = UIView(.green)
+        view.addSubview(green)
+        green.autolayout.top.equal(to: red)
+        green.autolayout.size.equal(to: red, multiplier: 1.2)
+        green.autolayout.left.equal(to: red.autolayout.right, constant: 10)
+
+        let yellow = UIView(.yellow)
+        view.addSubview(yellow)
+        yellow.autolayout.center.equal(to: blue)
+        yellow.autolayout.size.equal(to: CGSize(width: 40, height: 60))
     }
 }
 
