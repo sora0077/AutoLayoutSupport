@@ -47,32 +47,38 @@ extension Extension where Base: UILayoutGuide {
     public var top: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.topAnchor, keyPaths: [
             \UIView.topAnchor,
-            \UILayoutGuide.topAnchor
+            \UILayoutGuide.topAnchor,
+            \UILayoutSupport.topAnchor
         ])
     }
+
     public var bottom: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.bottomAnchor, keyPaths: [
             \UIView.bottomAnchor,
-            \UILayoutGuide.bottomAnchor
+            \UILayoutGuide.bottomAnchor,
+            \UILayoutSupport.bottomAnchor
         ])
     }
+
     public var centerY: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.centerYAnchor, keyPaths: [
             \UIView.centerYAnchor,
-            \UILayoutGuide.centerYAnchor
+            \UILayoutGuide.centerYAnchor,
         ])
     }
+
     // for NSLayoutDimension
     public var width: Layout<NSLayoutDimension> {
         return Layout(owner: base.owningView, anchors: base.widthAnchor, keyPaths: [
             \UIView.widthAnchor,
-            \UILayoutGuide.widthAnchor
+            \UILayoutGuide.widthAnchor,
         ])
     }
     public var height: Layout<NSLayoutDimension> {
         return Layout(owner: base.owningView, anchors: base.heightAnchor, keyPaths: [
             \UIView.heightAnchor,
-            \UILayoutGuide.heightAnchor
+            \UILayoutGuide.heightAnchor,
+            \UILayoutSupport.heightAnchor
         ])
     }
     // MARK: - composition layout
@@ -124,21 +130,26 @@ extension Extension where Base: UIView {
     public var top: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base, anchors: base.topAnchor, keyPaths: [
             \UIView.topAnchor,
-            \UILayoutGuide.topAnchor
+            \UILayoutGuide.topAnchor,
+            \UILayoutSupport.topAnchor
         ])
     }
+
     public var bottom: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base, anchors: base.bottomAnchor, keyPaths: [
             \UIView.bottomAnchor,
-            \UILayoutGuide.bottomAnchor
+            \UILayoutGuide.bottomAnchor,
+            \UILayoutSupport.bottomAnchor
         ])
     }
+
     public var centerY: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base, anchors: base.centerYAnchor, keyPaths: [
             \UIView.centerYAnchor,
-            \UILayoutGuide.centerYAnchor
+            \UILayoutGuide.centerYAnchor,
         ])
     }
+
     public var firstBaseline: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base, anchors: base.firstBaselineAnchor, keyPaths: [
             \UIView.firstBaselineAnchor
@@ -153,13 +164,14 @@ extension Extension where Base: UIView {
     public var width: Layout<NSLayoutDimension> {
         return Layout(owner: base, anchors: base.widthAnchor, keyPaths: [
             \UIView.widthAnchor,
-            \UILayoutGuide.widthAnchor
+            \UILayoutGuide.widthAnchor,
         ])
     }
     public var height: Layout<NSLayoutDimension> {
         return Layout(owner: base, anchors: base.heightAnchor, keyPaths: [
             \UIView.heightAnchor,
-            \UILayoutGuide.heightAnchor
+            \UILayoutGuide.heightAnchor,
+            \UILayoutSupport.heightAnchor
         ])
     }
     // MARK: - composition layout
@@ -173,19 +185,5 @@ extension Extension where Base: UIView {
 
     public var edges: Layout<(top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor)> {
         return Layout(owner: base, anchors: (base.topAnchor, base.leftAnchor, base.bottomAnchor, base.rightAnchor))
-    }
-}
-
-extension Extension where Base: UILayoutSupport {
-    public var top: Layout<NSLayoutYAxisAnchor> {
-        return Layout(owner: nil, anchors: base.topAnchor)
-    }
-
-    public var bottom: Layout<NSLayoutYAxisAnchor> {
-        return Layout(owner: nil, anchors: base.bottomAnchor)
-    }
-
-    public var height: Layout<NSLayoutDimension> {
-        return Layout(owner: nil, anchors: base.heightAnchor)
     }
 }

@@ -23,3 +23,29 @@ extension UILayoutGuide: AutoLayoutSupportCompatible {}
 extension UILayoutSupport {
     public var autolayout: Extension<Self> { return Extension(base: self) }
 }
+
+extension Extension where Base: UILayoutSupport {
+    public var top: Layout<NSLayoutYAxisAnchor> {
+        return Layout(owner: nil, anchors: base.topAnchor, keyPaths: [
+            \UIView.topAnchor,
+            \UILayoutGuide.topAnchor,
+            \UILayoutSupport.topAnchor
+        ])
+    }
+
+    public var bottom: Layout<NSLayoutYAxisAnchor> {
+        return Layout(owner: nil, anchors: base.bottomAnchor, keyPaths: [
+            \UIView.bottomAnchor,
+            \UILayoutGuide.bottomAnchor,
+            \UILayoutSupport.bottomAnchor
+        ])
+    }
+
+    public var height: Layout<NSLayoutDimension> {
+        return Layout(owner: nil, anchors: base.heightAnchor, keyPaths: [
+            \UIView.heightAnchor,
+            \UILayoutGuide.heightAnchor,
+            \UILayoutSupport.heightAnchor
+        ])
+    }
+}

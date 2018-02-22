@@ -26,10 +26,14 @@ extension Extension where Base: {{ type.name }} {
     public var {{ anchor }}: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: {% call ownerImpl type %}, anchors: base.{{ anchor }}Anchor, keyPaths: [
         {% for type in types.implementing.AutoLayoutSupportCompatible|reversed %}
-            \{{ type.name }}.{{ anchor }}Anchor{% if not forloop.last %},{% endif %}
+            \{{ type.name }}.{{ anchor }}Anchor,
         {% endfor %}
+        {% if anchor == "top" or anchor == "bottom" %}
+            \UILayoutSupport.{{ anchor }}Anchor
+        {% endif %}
         ])
     }
+
     {% endfor %}
     {% if type.name == "UIView" %}
     public var firstBaseline: Layout<NSLayoutYAxisAnchor> {
@@ -48,8 +52,11 @@ extension Extension where Base: {{ type.name }} {
     public var {{ anchor }}: Layout<NSLayoutDimension> {
         return Layout(owner: {% call ownerImpl type %}, anchors: base.{{ anchor }}Anchor, keyPaths: [
         {% for type in types.implementing.AutoLayoutSupportCompatible|reversed %}
-            \{{ type.name }}.{{ anchor }}Anchor{% if not forloop.last %},{% endif %}
+            \{{ type.name }}.{{ anchor }}Anchor,
         {% endfor %}
+        {% if anchor == "height" %}
+            \UILayoutSupport.{{ anchor }}Anchor
+        {% endif %}
         ])
     }
     {% endfor %}
@@ -67,17 +74,3 @@ extension Extension where Base: {{ type.name }} {
     }
 }
 {% endfor %}
-
-extension Extension where Base: UILayoutSupport {
-    public var top: Layout<NSLayoutYAxisAnchor> {
-        return Layout(owner: nil, anchors: base.topAnchor)
-    }
-
-    public var bottom: Layout<NSLayoutYAxisAnchor> {
-        return Layout(owner: nil, anchors: base.bottomAnchor)
-    }
-
-    public var height: Layout<NSLayoutDimension> {
-        return Layout(owner: nil, anchors: base.heightAnchor)
-    }
-}

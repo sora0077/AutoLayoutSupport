@@ -31,7 +31,7 @@ class ViewController: UIViewController {
 
         let green = UIView(.green)
         view.addSubview(green)
-        green.autolayout.top.equal(to: red)
+        green.autolayout.top.equal(to: topLayoutGuide)
         green.autolayout.size.equal(to: red, multiplier: 1.2)
         green.autolayout.left.equal(to: red.autolayout.right, constant: 10)
 

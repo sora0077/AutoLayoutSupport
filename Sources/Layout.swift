@@ -11,7 +11,7 @@ import UIKit
 public struct Layout<Anchors> {
     weak var owner: UIView?
     let anchors: Anchors
-    var keyPaths: [AnyKeyPath] = []
+    let keyPaths: [AnyKeyPath]
 
     init(owner: UIView?, anchors: Anchors, keyPaths: [AnyKeyPath] = []) {
         (self.owner, self.anchors, self.keyPaths) = (owner, anchors, keyPaths)
