@@ -15,70 +15,67 @@ extension Extension where Base: UILayoutGuide {
     // for NSLayoutXAxisAnchor
     public var left: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.leftAnchor, keyPaths: [
-            \UIView.leftAnchor,
-            \UILayoutGuide.leftAnchor
+            \Extension<UIView>.left,
+            \Extension<UILayoutGuide>.left
         ])
     }
     public var right: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.rightAnchor, keyPaths: [
-            \UIView.rightAnchor,
-            \UILayoutGuide.rightAnchor
+            \Extension<UIView>.right,
+            \Extension<UILayoutGuide>.right
         ])
     }
     public var leading: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.leadingAnchor, keyPaths: [
-            \UIView.leadingAnchor,
-            \UILayoutGuide.leadingAnchor
+            \Extension<UIView>.leading,
+            \Extension<UILayoutGuide>.leading
         ])
     }
     public var trailing: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.trailingAnchor, keyPaths: [
-            \UIView.trailingAnchor,
-            \UILayoutGuide.trailingAnchor
+            \Extension<UIView>.trailing,
+            \Extension<UILayoutGuide>.trailing
         ])
     }
     public var centerX: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.centerXAnchor, keyPaths: [
-            \UIView.centerXAnchor,
-            \UILayoutGuide.centerXAnchor
+            \Extension<UIView>.centerX,
+            \Extension<UILayoutGuide>.centerX
         ])
     }
     // for NSLayoutYAxisAnchor
     public var top: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.topAnchor, keyPaths: [
-            \UIView.topAnchor,
-            \UILayoutGuide.topAnchor,
-            \UILayoutSupport.topAnchor
+            \Extension<UIView>.top,
+            \Extension<UILayoutGuide>.top,
+            \Extension<UILayoutSupport>.top
         ])
     }
-
     public var bottom: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.bottomAnchor, keyPaths: [
-            \UIView.bottomAnchor,
-            \UILayoutGuide.bottomAnchor,
-            \UILayoutSupport.bottomAnchor
+            \Extension<UIView>.bottom,
+            \Extension<UILayoutGuide>.bottom,
+            \Extension<UILayoutSupport>.bottom
         ])
     }
-
     public var centerY: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base.owningView, anchors: base.centerYAnchor, keyPaths: [
-            \UIView.centerYAnchor,
-            \UILayoutGuide.centerYAnchor
+            \Extension<UIView>.centerY,
+            \Extension<UILayoutGuide>.centerY
         ])
     }
-
     // for NSLayoutDimension
     public var width: Layout<NSLayoutDimension> {
         return Layout(owner: base.owningView, anchors: base.widthAnchor, keyPaths: [
-            \UIView.widthAnchor,
-            \UILayoutGuide.widthAnchor
+            \Extension<UIView>.width,
+            \Extension<UILayoutGuide>.width
         ])
     }
     public var height: Layout<NSLayoutDimension> {
         return Layout(owner: base.owningView, anchors: base.heightAnchor, keyPaths: [
-            \UIView.heightAnchor,
-            \UILayoutGuide.heightAnchor,
-            \UILayoutSupport.heightAnchor
+            \Extension<UIView>.height,
+            \Extension<UILayoutGuide>.height,
+            \Extension<UILayoutSupport>.height
         ])
     }
     // MARK: - composition layout
@@ -98,80 +95,77 @@ extension Extension where Base: UIView {
     // for NSLayoutXAxisAnchor
     public var left: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: base, anchors: base.leftAnchor, keyPaths: [
-            \UIView.leftAnchor,
-            \UILayoutGuide.leftAnchor
+            \Extension<UIView>.left,
+            \Extension<UILayoutGuide>.left
         ])
     }
     public var right: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: base, anchors: base.rightAnchor, keyPaths: [
-            \UIView.rightAnchor,
-            \UILayoutGuide.rightAnchor
+            \Extension<UIView>.right,
+            \Extension<UILayoutGuide>.right
         ])
     }
     public var leading: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: base, anchors: base.leadingAnchor, keyPaths: [
-            \UIView.leadingAnchor,
-            \UILayoutGuide.leadingAnchor
+            \Extension<UIView>.leading,
+            \Extension<UILayoutGuide>.leading
         ])
     }
     public var trailing: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: base, anchors: base.trailingAnchor, keyPaths: [
-            \UIView.trailingAnchor,
-            \UILayoutGuide.trailingAnchor
+            \Extension<UIView>.trailing,
+            \Extension<UILayoutGuide>.trailing
         ])
     }
     public var centerX: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: base, anchors: base.centerXAnchor, keyPaths: [
-            \UIView.centerXAnchor,
-            \UILayoutGuide.centerXAnchor
+            \Extension<UIView>.centerX,
+            \Extension<UILayoutGuide>.centerX
         ])
     }
     // for NSLayoutYAxisAnchor
     public var top: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base, anchors: base.topAnchor, keyPaths: [
-            \UIView.topAnchor,
-            \UILayoutGuide.topAnchor,
-            \UILayoutSupport.topAnchor
+            \Extension<UIView>.top,
+            \Extension<UILayoutGuide>.top,
+            \Extension<UILayoutSupport>.top
         ])
     }
-
     public var bottom: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base, anchors: base.bottomAnchor, keyPaths: [
-            \UIView.bottomAnchor,
-            \UILayoutGuide.bottomAnchor,
-            \UILayoutSupport.bottomAnchor
+            \Extension<UIView>.bottom,
+            \Extension<UILayoutGuide>.bottom,
+            \Extension<UILayoutSupport>.bottom
         ])
     }
-
     public var centerY: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base, anchors: base.centerYAnchor, keyPaths: [
-            \UIView.centerYAnchor,
-            \UILayoutGuide.centerYAnchor
+            \Extension<UIView>.centerY,
+            \Extension<UILayoutGuide>.centerY
         ])
     }
-
     public var firstBaseline: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base, anchors: base.firstBaselineAnchor, keyPaths: [
-            \UIView.firstBaselineAnchor
+            \Extension<UIView>.firstBaseline
         ])
     }
     public var lastBaseline: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: base, anchors: base.lastBaselineAnchor, keyPaths: [
-            \UIView.lastBaselineAnchor
+            \Extension<UIView>.lastBaseline
         ])
     }
     // for NSLayoutDimension
     public var width: Layout<NSLayoutDimension> {
         return Layout(owner: base, anchors: base.widthAnchor, keyPaths: [
-            \UIView.widthAnchor,
-            \UILayoutGuide.widthAnchor
+            \Extension<UIView>.width,
+            \Extension<UILayoutGuide>.width
         ])
     }
     public var height: Layout<NSLayoutDimension> {
         return Layout(owner: base, anchors: base.heightAnchor, keyPaths: [
-            \UIView.heightAnchor,
-            \UILayoutGuide.heightAnchor,
-            \UILayoutSupport.heightAnchor
+            \Extension<UIView>.height,
+            \Extension<UILayoutGuide>.height,
+            \Extension<UILayoutSupport>.height
         ])
     }
     // MARK: - composition layout

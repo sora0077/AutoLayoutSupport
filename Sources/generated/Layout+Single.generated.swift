@@ -11,199 +11,297 @@
 
 import Foundation
 
+//
+//
+//
 // MARK: - NSLayoutXAxisAnchor specialized with UILayoutGuide
 public extension Layout where Anchors == NSLayoutXAxisAnchor {
     @discardableResult
     func equal(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(equalTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return equal(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     func greaterThanOrEqual(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(greaterThanOrEqualTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     func lessThanOrEqual(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(lessThanOrEqualTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 }
 
-// MARK: - NSLayoutYAxisAnchor specialized with UILayoutGuide
-public extension Layout where Anchors == NSLayoutYAxisAnchor {
-    @discardableResult
-    func equal(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
-               file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
-            fatalError()
-        }
-        let c = anchors.constraint(equalTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
-    }
-
-    @discardableResult
-    func greaterThanOrEqual(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
-                            file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
-            fatalError()
-        }
-        let c = anchors.constraint(greaterThanOrEqualTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
-    }
-
-    @discardableResult
-    func lessThanOrEqual(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
-                         file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
-            fatalError()
-        }
-        let c = anchors.constraint(lessThanOrEqualTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
-    }
-}
-
-// MARK: - NSLayoutDimension specialized with UILayoutGuide
-public extension Layout where Anchors == NSLayoutDimension {
-    @discardableResult
-    func equal(to other: UILayoutGuide, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = .required,
-               file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
-            fatalError()
-        }
-        let c = anchors.constraint(equalTo: anchor, multiplier: multiplier, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
-    }
-
-    @discardableResult
-    func greaterThanOrEqual(to other: UILayoutGuide, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = .required,
-                            file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
-            fatalError()
-        }
-        let c = anchors.constraint(greaterThanOrEqualTo: anchor, multiplier: multiplier, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
-    }
-
-    @discardableResult
-    func lessThanOrEqual(to other: UILayoutGuide, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = .required,
-                         file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
-            fatalError()
-        }
-        let c = anchors.constraint(lessThanOrEqualTo: anchor, multiplier: multiplier, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
-    }
-}
+//
+//
+//
 // MARK: - NSLayoutXAxisAnchor specialized with UIView
 public extension Layout where Anchors == NSLayoutXAxisAnchor {
     @discardableResult
     func equal(to other: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(equalTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return equal(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     func greaterThanOrEqual(to other: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(greaterThanOrEqualTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     func lessThanOrEqual(to other: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(lessThanOrEqualTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 }
 
+//
+//
+//
+// MARK: - NSLayoutYAxisAnchor specialized with UILayoutGuide
+public extension Layout where Anchors == NSLayoutYAxisAnchor {
+    @discardableResult
+    func equal(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+               file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return equal(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+
+    @discardableResult
+    func greaterThanOrEqual(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+                            file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return greaterThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+
+    @discardableResult
+    func lessThanOrEqual(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+                         file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return lessThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+}
+
+//
+//
+//
 // MARK: - NSLayoutYAxisAnchor specialized with UIView
 public extension Layout where Anchors == NSLayoutYAxisAnchor {
     @discardableResult
     func equal(to other: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(equalTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return equal(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     func greaterThanOrEqual(to other: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(greaterThanOrEqualTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     func lessThanOrEqual(to other: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(lessThanOrEqualTo: anchor, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 }
 
+//
+//
+//
+// MARK: - NSLayoutDimension specialized with UILayoutGuide
+public extension Layout where Anchors == NSLayoutDimension {
+    @discardableResult
+    func equal(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+               file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return equal(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+
+    @discardableResult
+    func greaterThanOrEqual(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+                            file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return greaterThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+
+    @discardableResult
+    func lessThanOrEqual(to other: UILayoutGuide, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+                         file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return lessThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+}
+
+//
+//
+//
 // MARK: - NSLayoutDimension specialized with UIView
 public extension Layout where Anchors == NSLayoutDimension {
     @discardableResult
-    func equal(to other: UIView, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+    func equal(to other: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(equalTo: anchor, multiplier: multiplier, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return equal(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 
     @discardableResult
-    func greaterThanOrEqual(to other: UIView, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+    func greaterThanOrEqual(to other: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(greaterThanOrEqualTo: anchor, multiplier: multiplier, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 
     @discardableResult
-    func lessThanOrEqual(to other: UIView, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+    func lessThanOrEqual(to other: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
-        guard let anchor = keyPaths.lazy.flatMap({ other[keyPath: $0] as? Anchors }).first else {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        let c = anchors.constraint(lessThanOrEqualTo: anchor, multiplier: multiplier, constant: constant)
-        return activate(c, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+}
+
+//
+//
+//
+// MARK: - NSLayoutXAxisAnchor specialized with UILayoutSupport
+public extension Layout where Anchors == NSLayoutXAxisAnchor {
+    @discardableResult
+    func equal(to other: UILayoutSupport, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+               file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return equal(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+
+    @discardableResult
+    func greaterThanOrEqual(to other: UILayoutSupport, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+                            file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return greaterThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+
+    @discardableResult
+    func lessThanOrEqual(to other: UILayoutSupport, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+                         file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return lessThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+}
+//
+//
+//
+// MARK: - NSLayoutYAxisAnchor specialized with UILayoutSupport
+public extension Layout where Anchors == NSLayoutYAxisAnchor {
+    @discardableResult
+    func equal(to other: UILayoutSupport, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+               file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return equal(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+
+    @discardableResult
+    func greaterThanOrEqual(to other: UILayoutSupport, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+                            file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return greaterThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+
+    @discardableResult
+    func lessThanOrEqual(to other: UILayoutSupport, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+                         file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return lessThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+}
+//
+//
+//
+// MARK: - NSLayoutDimension specialized with UILayoutSupport
+public extension Layout where Anchors == NSLayoutDimension {
+    @discardableResult
+    func equal(to other: UILayoutSupport, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+               file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return equal(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+
+    @discardableResult
+    func greaterThanOrEqual(to other: UILayoutSupport, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+                            file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return greaterThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+    }
+
+    @discardableResult
+    func lessThanOrEqual(to other: UILayoutSupport, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+                         file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
+            fatalError()
+        }
+        return lessThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
     }
 }

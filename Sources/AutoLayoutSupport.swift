@@ -25,7 +25,7 @@ extension AutoLayoutSupportCompatible {
 extension UIView: AutoLayoutSupportCompatible {}
 extension UILayoutGuide: AutoLayoutSupportCompatible {}
 extension UILayoutSupport {
-    public var autolayout: Extension<Self> { return Extension(base: self) }
+    public var autolayout: Extension<UILayoutSupport> { return Extension(base: self) }
 }
 
 extension Extension where Base: UILayoutSupport {

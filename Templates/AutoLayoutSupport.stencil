@@ -16,7 +16,7 @@ extension Extension where Base: {{ type.name }} {
     public var {{ anchor }}: Layout<NSLayoutXAxisAnchor> {
         return Layout(owner: {% call ownerImpl type %}, anchors: base.{{ anchor }}Anchor, keyPaths: [
         {% for type in types.implementing.AutoLayoutSupportCompatible|reversed %}
-            \{{ type.name }}.{{ anchor }}Anchor{% if not forloop.last %},{% endif %}
+            \Extension<{{ type.name }}>.{{ anchor }}{% if not forloop.last %},{% endif %}
         {% endfor %}
         ])
     }
@@ -26,24 +26,23 @@ extension Extension where Base: {{ type.name }} {
     public var {{ anchor }}: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: {% call ownerImpl type %}, anchors: base.{{ anchor }}Anchor, keyPaths: [
         {% for type in types.implementing.AutoLayoutSupportCompatible|reversed %}
-            \{{ type.name }}.{{ anchor }}Anchor,
+            \Extension<{{ type.name }}>.{{ anchor }},
         {% endfor %}
         {% if anchor == "top" or anchor == "bottom" %}
-            \UILayoutSupport.{{ anchor }}Anchor
+            \Extension<UILayoutSupport>.{{ anchor }}
         {% endif %}
         ])
     }
-
     {% endfor %}
     {% if type.name == "UIView" %}
     public var firstBaseline: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: {% call ownerImpl type %}, anchors: base.firstBaselineAnchor, keyPaths: [
-            \UIView.firstBaselineAnchor
+            \Extension<UIView>.firstBaseline
         ])
     }
     public var lastBaseline: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: {% call ownerImpl type %}, anchors: base.lastBaselineAnchor, keyPaths: [
-            \UIView.lastBaselineAnchor
+            \Extension<UIView>.lastBaseline
         ])
     }
     {% endif %}
@@ -52,10 +51,10 @@ extension Extension where Base: {{ type.name }} {
     public var {{ anchor }}: Layout<NSLayoutDimension> {
         return Layout(owner: {% call ownerImpl type %}, anchors: base.{{ anchor }}Anchor, keyPaths: [
         {% for type in types.implementing.AutoLayoutSupportCompatible|reversed %}
-            \{{ type.name }}.{{ anchor }}Anchor,
+            \Extension<{{ type.name }}>.{{ anchor }},
         {% endfor %}
         {% if anchor == "height" %}
-            \UILayoutSupport.{{ anchor }}Anchor
+            \Extension<UILayoutSupport>.{{ anchor }}
         {% endif %}
         ])
     }
