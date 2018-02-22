@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         let green = UIView(.green)
         view.addSubview(green)
         green.autolayout.apply {
-            $0.top.equal(to: topLayoutGuide)
+            $0.top.equal(toSystemSpacingBelow: view)
             $0.size.equal(to: red, multiplier: 1.2)
             $0.left.equal(to: red.autolayout.right, constant: 10)
         }
@@ -46,6 +46,13 @@ class ViewController: UIViewController {
         yellow.autolayout.apply {
             $0.center.equal(to: blue)
             $0.size.equal(to: CGSize(width: 40, height: 60))
+        }
+
+        let orange = UIView(.orange)
+        view.addSubview(orange)
+        orange.autolayout.apply {
+            $0.center.equal(to: red)
+            $0.edges.equal(to: red.autolayout.edges, offset: -10)
         }
     }
 }

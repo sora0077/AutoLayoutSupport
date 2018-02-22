@@ -30,6 +30,32 @@ public extension Layout where Anchors == NSLayoutXAxisAnchor {
         let c = anchors.constraint(lessThanOrEqualTo: other.anchors, constant: constant)
         return activate(c, priority: priority, file: file, line: line)
     }
+
+    //
+    // MARK: - system spacing
+    @available(iOS 11.0, *)
+    @discardableResult
+    func equal(toSystemSpacingAfter other: Layout, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+               file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        let c = anchors.constraintEqualToSystemSpacingAfter(other.anchors, multiplier: multiplier)
+        return activate(c, priority: priority, file: file, line: line)
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    func greaterThanOrEqual(toSystemSpacingAfter other: Layout, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+                            file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        let c = anchors.constraintGreaterThanOrEqualToSystemSpacingAfter(other.anchors, multiplier: multiplier)
+        return activate(c, priority: priority, file: file, line: line)
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    func lessThanOrEqual(toSystemSpacingAfter other: Layout, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+                         file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        let c = anchors.constraintLessThanOrEqualToSystemSpacingAfter(other.anchors, multiplier: multiplier)
+        return activate(c, priority: priority, file: file, line: line)
+    }
 }
 
 // MARK: - NSLayoutYAxisAnchor
@@ -52,6 +78,32 @@ public extension Layout where Anchors == NSLayoutYAxisAnchor {
     func lessThanOrEqual(to other: Layout, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         let c = anchors.constraint(lessThanOrEqualTo: other.anchors, constant: constant)
+        return activate(c, priority: priority, file: file, line: line)
+    }
+
+    //
+    // MARK: - system spacing
+    @available(iOS 11.0, *)
+    @discardableResult
+    func equal(toSystemSpacingBelow other: Layout, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+               file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        let c = anchors.constraintEqualToSystemSpacingBelow(other.anchors, multiplier: multiplier)
+        return activate(c, priority: priority, file: file, line: line)
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    func greaterThanOrEqual(toSystemSpacingBelow other: Layout, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+                            file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        let c = anchors.constraintGreaterThanOrEqualToSystemSpacingBelow(other.anchors, multiplier: multiplier)
+        return activate(c, priority: priority, file: file, line: line)
+    }
+
+    @available(iOS 11.0, *)
+    @discardableResult
+    func lessThanOrEqual(toSystemSpacingBelow other: Layout, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+                         file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
+        let c = anchors.constraintLessThanOrEqualToSystemSpacingBelow(other.anchors, multiplier: multiplier)
         return activate(c, priority: priority, file: file, line: line)
     }
 }
@@ -79,6 +131,8 @@ public extension Layout where Anchors == NSLayoutDimension {
         return activate(c, priority: priority, file: file, line: line)
     }
 
+    //
+    // MARK: - constant
     @discardableResult
     func greaterThanOrEqual(to constant: CGFloat, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {

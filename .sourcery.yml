@@ -9,3 +9,4 @@ args:
   yanchors: [top, bottom, centerY]
   dimanchors: [width, height]
   uikit_anchors: [NSLayoutXAxisAnchor, NSLayoutYAxisAnchor, NSLayoutDimension]
+  single_anchor_targets: [UIView, UILayoutGuide, UILayoutSupport]
