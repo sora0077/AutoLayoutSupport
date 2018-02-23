@@ -10,7 +10,7 @@ import Foundation
 
 {% for type in types.implementing.AutoLayoutSupportCompatible %}
 // MARK: - (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor) for {{ type.name }} shortcut
-public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor){
+public extension Layout where Anchors == (top: NSLayoutYAxisAnchor, left: NSLayoutXAxisAnchor, bottom: NSLayoutYAxisAnchor, right: NSLayoutXAxisAnchor) {
     @discardableResult
     func equal(to other: {{ type.name }},
                _ insets: EdgeInsets = .zero,

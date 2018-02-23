@@ -47,32 +47,32 @@ public extension Layout where Anchors == NSLayoutXAxisAnchor {
     // MARK: - system spacing
     @available(iOS 11.0, *)
     @discardableResult
-    func equal(toSystemSpacingAfter other: UIView, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func equal(to other: UIView, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return equal(toSystemSpacingAfter: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return equal(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func greaterThanOrEqual(toSystemSpacingAfter other: UIView, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func greaterThanOrEqual(to other: UIView, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return greaterThanOrEqual(toSystemSpacingAfter: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func lessThanOrEqual(toSystemSpacingAfter other: UIView, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func lessThanOrEqual(to other: UIView, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return lessThanOrEqual(toSystemSpacingAfter: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 }
 
@@ -112,32 +112,32 @@ public extension Layout where Anchors == NSLayoutXAxisAnchor {
     // MARK: - system spacing
     @available(iOS 11.0, *)
     @discardableResult
-    func equal(toSystemSpacingAfter other: UILayoutGuide, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func equal(to other: UILayoutGuide, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return equal(toSystemSpacingAfter: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return equal(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func greaterThanOrEqual(toSystemSpacingAfter other: UILayoutGuide, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func greaterThanOrEqual(to other: UILayoutGuide, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return greaterThanOrEqual(toSystemSpacingAfter: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func lessThanOrEqual(toSystemSpacingAfter other: UILayoutGuide, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func lessThanOrEqual(to other: UILayoutGuide, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return lessThanOrEqual(toSystemSpacingAfter: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 }
 
@@ -177,32 +177,32 @@ public extension Layout where Anchors == NSLayoutXAxisAnchor {
     // MARK: - system spacing
     @available(iOS 11.0, *)
     @discardableResult
-    func equal(toSystemSpacingAfter other: UILayoutSupport, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func equal(to other: UILayoutSupport, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return equal(toSystemSpacingAfter: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return equal(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func greaterThanOrEqual(toSystemSpacingAfter other: UILayoutSupport, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func greaterThanOrEqual(to other: UILayoutSupport, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return greaterThanOrEqual(toSystemSpacingAfter: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func lessThanOrEqual(toSystemSpacingAfter other: UILayoutSupport, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func lessThanOrEqual(to other: UILayoutSupport, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return lessThanOrEqual(toSystemSpacingAfter: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 }
 
@@ -242,32 +242,32 @@ public extension Layout where Anchors == NSLayoutYAxisAnchor {
     // MARK: - system spacing
     @available(iOS 11.0, *)
     @discardableResult
-    func equal(toSystemSpacingBelow other: UIView, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func equal(to other: UIView, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return equal(toSystemSpacingBelow: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return equal(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func greaterThanOrEqual(toSystemSpacingBelow other: UIView, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func greaterThanOrEqual(to other: UIView, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return greaterThanOrEqual(toSystemSpacingBelow: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func lessThanOrEqual(toSystemSpacingBelow other: UIView, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func lessThanOrEqual(to other: UIView, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return lessThanOrEqual(toSystemSpacingBelow: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 }
 
@@ -307,32 +307,32 @@ public extension Layout where Anchors == NSLayoutYAxisAnchor {
     // MARK: - system spacing
     @available(iOS 11.0, *)
     @discardableResult
-    func equal(toSystemSpacingBelow other: UILayoutGuide, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func equal(to other: UILayoutGuide, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return equal(toSystemSpacingBelow: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return equal(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func greaterThanOrEqual(toSystemSpacingBelow other: UILayoutGuide, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func greaterThanOrEqual(to other: UILayoutGuide, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return greaterThanOrEqual(toSystemSpacingBelow: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func lessThanOrEqual(toSystemSpacingBelow other: UILayoutGuide, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func lessThanOrEqual(to other: UILayoutGuide, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return lessThanOrEqual(toSystemSpacingBelow: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 }
 
@@ -372,32 +372,32 @@ public extension Layout where Anchors == NSLayoutYAxisAnchor {
     // MARK: - system spacing
     @available(iOS 11.0, *)
     @discardableResult
-    func equal(toSystemSpacingBelow other: UILayoutSupport, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func equal(to other: UILayoutSupport, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return equal(toSystemSpacingBelow: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return equal(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func greaterThanOrEqual(toSystemSpacingBelow other: UILayoutSupport, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func greaterThanOrEqual(to other: UILayoutSupport, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return greaterThanOrEqual(toSystemSpacingBelow: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 
     @discardableResult
     @available(iOS 11.0, *)
-    func lessThanOrEqual(toSystemSpacingBelow other: UILayoutSupport, multiplier: CGFloat = 0, priority: UILayoutPriority = .required,
+    func lessThanOrEqual(to other: UILayoutSupport, systemSpacing: SystemSpacing, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return lessThanOrEqual(toSystemSpacingBelow: other, multiplier: multiplier, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other, systemSpacing: systemSpacing, priority: priority, file: file, line: line)
     }
 }
 
