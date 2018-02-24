@@ -31,25 +31,78 @@ extension UILayoutSupport {
 extension Extension where Base: UILayoutSupport {
     public var top: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: nil, anchors: base.topAnchor, keyPaths: [
-            \UIView.topAnchor,
-            \UILayoutGuide.topAnchor,
-            \UILayoutSupport.topAnchor
+            \Extension<UIView>.top,
+            \Extension<UILayoutGuide>.top,
+            \Extension<UILayoutSupport>.top
         ])
     }
 
     public var bottom: Layout<NSLayoutYAxisAnchor> {
         return Layout(owner: nil, anchors: base.bottomAnchor, keyPaths: [
-            \UIView.bottomAnchor,
-            \UILayoutGuide.bottomAnchor,
-            \UILayoutSupport.bottomAnchor
+            \Extension<UIView>.bottom,
+            \Extension<UILayoutGuide>.bottom,
+            \Extension<UILayoutSupport>.bottom
         ])
     }
 
     public var height: Layout<NSLayoutDimension> {
         return Layout(owner: nil, anchors: base.heightAnchor, keyPaths: [
-            \UIView.heightAnchor,
-            \UILayoutGuide.heightAnchor,
-            \UILayoutSupport.heightAnchor
+            \Extension<UIView>.height,
+            \Extension<UILayoutGuide>.height,
+            \Extension<UILayoutSupport>.height
         ])
+    }
+}
+
+//
+//
+// MARK: - safe area backward compatiblity
+public struct SafeArea {
+    fileprivate let viewController: UIViewController
+}
+
+extension UIViewController {
+    public var autolayout: Extension<UIViewController> { return Extension(base: self) }
+}
+
+extension Extension where Base == UIViewController {
+    public var safeArea: Extension<SafeArea> {
+        return Extension<SafeArea>(base: SafeArea(viewController: base))
+    }
+}
+
+extension Extension where Base == SafeArea {
+    public var top: Layout<NSLayoutYAxisAnchor> {
+        let vc = base.viewController
+        if #available(iOS 11.0, *) {
+            return Layout(owner: vc.view, anchors: vc.view.safeAreaLayoutGuide.topAnchor, keyPaths: [
+                \Extension<UIView>.top,
+                \Extension<UILayoutGuide>.top,
+                \Extension<UILayoutSupport>.top
+            ])
+        } else {
+            return Layout(owner: vc.view, anchors: vc.topLayoutGuide.bottomAnchor, keyPaths: [
+                \Extension<UIView>.top,
+                \Extension<UILayoutGuide>.top,
+                \Extension<UILayoutSupport>.top
+            ])
+        }
+    }
+
+    public var bottom: Layout<NSLayoutYAxisAnchor> {
+        let vc = base.viewController
+        if #available(iOS 11.0, *) {
+            return Layout(owner: vc.view, anchors: vc.view.safeAreaLayoutGuide.bottomAnchor, keyPaths: [
+                \Extension<UIView>.bottom,
+                \Extension<UILayoutGuide>.bottom,
+                \Extension<UILayoutSupport>.bottom
+            ])
+        } else {
+            return Layout(owner: vc.view, anchors: vc.bottomLayoutGuide.topAnchor, keyPaths: [
+                \Extension<UIView>.bottom,
+                \Extension<UILayoutGuide>.bottom,
+                \Extension<UILayoutSupport>.bottom
+            ])
+        }
     }
 }

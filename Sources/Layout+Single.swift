@@ -107,11 +107,11 @@ public extension Layout where Anchors == NSLayoutDimension {
 //
 // MARK: - system spacing
 public enum SystemSpacing {
-    case systemSpacing(CGFloat)
+    case level(CGFloat)
 
     fileprivate var value: CGFloat {
         switch self {
-        case .systemSpacing(let value): return value
+        case .level(let value): return value
         }
     }
 }
