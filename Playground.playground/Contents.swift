@@ -30,8 +30,11 @@ class ViewController: UIViewController {
         blue.autolayout.apply {
             $0.top.equal(to: red.autolayout.bottom, constant: 10)
             $0.centerX.equal(to: red, priority: .defaultHigh)
-            $0.size.equal(to: red, multiplier: 2)
+            $0.size
+                .content(compressionResistance: .required)
+                .equal(to: red, multiplier: 2)
         }
+        print(blue.contentCompressionResistancePriority(for: .horizontal))
 
         let green = UIView(.green)
         view.addSubview(green)

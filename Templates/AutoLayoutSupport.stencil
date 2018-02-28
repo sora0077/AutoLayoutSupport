@@ -49,7 +49,7 @@ extension Extension where Base: {{ type.name }} {
     // for NSLayoutDimension
     {% for anchor in argument.dimanchors %}
     public var {{ anchor }}: Layout<NSLayoutDimension> {
-        return Layout(owner: {% call ownerImpl type %}, anchors: base.{{ anchor }}Anchor, keyPaths: [
+        return Layout(owner: {% call ownerImpl type %}, anchors: base.{{ anchor }}Anchor, axis: {% if anchor == "height" %}.vertical{% else %}.horizontal{% endif %}, keyPaths: [
         {% for type in types.implementing.AutoLayoutSupportCompatible|reversed %}
             \Extension<{{ type.name }}>.{{ anchor }},
         {% endfor %}

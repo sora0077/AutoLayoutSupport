@@ -66,13 +66,13 @@ extension Extension where Base: UILayoutGuide {
     }
     // for NSLayoutDimension
     public var width: Layout<NSLayoutDimension> {
-        return Layout(owner: base.owningView, anchors: base.widthAnchor, keyPaths: [
+        return Layout(owner: base.owningView, anchors: base.widthAnchor, axis: .horizontal, keyPaths: [
             \Extension<UIView>.width,
             \Extension<UILayoutGuide>.width
         ])
     }
     public var height: Layout<NSLayoutDimension> {
-        return Layout(owner: base.owningView, anchors: base.heightAnchor, keyPaths: [
+        return Layout(owner: base.owningView, anchors: base.heightAnchor, axis: .vertical, keyPaths: [
             \Extension<UIView>.height,
             \Extension<UILayoutGuide>.height,
             \Extension<UILayoutSupport>.height
@@ -156,13 +156,13 @@ extension Extension where Base: UIView {
     }
     // for NSLayoutDimension
     public var width: Layout<NSLayoutDimension> {
-        return Layout(owner: base, anchors: base.widthAnchor, keyPaths: [
+        return Layout(owner: base, anchors: base.widthAnchor, axis: .horizontal, keyPaths: [
             \Extension<UIView>.width,
             \Extension<UILayoutGuide>.width
         ])
     }
     public var height: Layout<NSLayoutDimension> {
-        return Layout(owner: base, anchors: base.heightAnchor, keyPaths: [
+        return Layout(owner: base, anchors: base.heightAnchor, axis: .vertical, keyPaths: [
             \Extension<UIView>.height,
             \Extension<UILayoutGuide>.height,
             \Extension<UILayoutSupport>.height

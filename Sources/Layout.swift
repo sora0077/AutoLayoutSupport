@@ -11,10 +11,11 @@ import UIKit
 public struct Layout<Anchors> {
     weak var owner: UIView?
     let anchors: Anchors
+    let axis: UILayoutConstraintAxis?
     let keyPaths: [AnyKeyPath]
 
-    init(owner: UIView?, anchors: Anchors, keyPaths: [AnyKeyPath] = []) {
-        (self.owner, self.anchors, self.keyPaths) = (owner, anchors, keyPaths)
+    init(owner: UIView?, anchors: Anchors, axis: UILayoutConstraintAxis? = nil, keyPaths: [AnyKeyPath] = []) {
+        (self.owner, self.anchors, self.axis, self.keyPaths) = (owner, anchors, axis, keyPaths)
     }
 
     func activate(_ constraint: NSLayoutConstraint, priority: UILayoutPriority, file: StaticString, line: UInt) -> NSLayoutConstraint {

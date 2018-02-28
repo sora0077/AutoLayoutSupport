@@ -18,6 +18,18 @@ private extension CGSize {
 
 // MARK: - (width: NSLayoutDimension, height: NSLayoutDimension)
 public extension Layout where Anchors == (width: NSLayoutDimension, height: NSLayoutDimension) {
+    func content(hugging: UILayoutPriority? = nil, compressionResistance: UILayoutPriority? = nil) -> Layout<Anchors> {
+        if let hugging = hugging {
+            owner?.setContentHuggingPriority(hugging, for: .horizontal)
+            owner?.setContentHuggingPriority(hugging, for: .vertical)
+        }
+        if let compressionResistance = compressionResistance {
+            owner?.setContentCompressionResistancePriority(compressionResistance, for: .horizontal)
+            owner?.setContentCompressionResistancePriority(compressionResistance, for: .vertical)
+        }
+        return self
+    }
+
     @discardableResult
     func equal(to other: Layout,
         multiplier: CGFloat = 1,

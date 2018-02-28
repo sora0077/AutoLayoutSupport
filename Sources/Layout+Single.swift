@@ -58,6 +58,17 @@ public extension Layout where Anchors == NSLayoutYAxisAnchor {
 
 // MARK: - NSLayoutDimension
 public extension Layout where Anchors == NSLayoutDimension {
+    func content(hugging: UILayoutPriority? = nil, compressionResistance: UILayoutPriority? = nil) -> Layout<Anchors> {
+        guard let axis = axis else { return self }
+        if let hugging = hugging {
+            owner?.setContentHuggingPriority(hugging, for: axis)
+        }
+        if let compressionResistance = compressionResistance {
+            owner?.setContentCompressionResistancePriority(compressionResistance, for: axis)
+        }
+        return self
+    }
+
     @discardableResult
     func equal(to other: Layout, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
