@@ -16,30 +16,30 @@ import Foundation
 // MARK: - {{ uikit_anchor }} specialized with {{ target }}
 public extension Layout where Anchors == {{ uikit_anchor }} {
     @discardableResult
-    func equal(to other: {{ target }}, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+    func equal(to other: {{ target }}{% if uikit_anchor == "NSLayoutDimension" %}, multiplier: CGFloat = 1{% endif %}, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return equal(to: other, constant: constant, priority: priority, file: file, line: line)
+        return equal(to: other{% if uikit_anchor == "NSLayoutDimension" %}, multiplier: multiplier{% endif %}, constant: constant, priority: priority, file: file, line: line)
     }
 
     @discardableResult
-    func greaterThanOrEqual(to other: {{ target }}, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+    func greaterThanOrEqual(to other: {{ target }}{% if uikit_anchor == "NSLayoutDimension" %}, multiplier: CGFloat = 1{% endif %}, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                             file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return greaterThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+        return greaterThanOrEqual(to: other{% if uikit_anchor == "NSLayoutDimension" %}, multiplier: multiplier{% endif %}, constant: constant, priority: priority, file: file, line: line)
     }
 
     @discardableResult
-    func lessThanOrEqual(to other: {{ target }}, constant: CGFloat = 0, priority: UILayoutPriority = .required,
+    func lessThanOrEqual(to other: {{ target }}{% if uikit_anchor == "NSLayoutDimension" %}, multiplier: CGFloat = 1{% endif %}, constant: CGFloat = 0, priority: UILayoutPriority = .required,
                          file: StaticString = #file, line: UInt = #line) -> NSLayoutConstraint {
         guard let other = keyPaths.lazy.flatMap({ other.autolayout[keyPath: $0] as? Layout<Anchors> }).first else {
             fatalError()
         }
-        return lessThanOrEqual(to: other, constant: constant, priority: priority, file: file, line: line)
+        return lessThanOrEqual(to: other{% if uikit_anchor == "NSLayoutDimension" %}, multiplier: multiplier{% endif %}, constant: constant, priority: priority, file: file, line: line)
     }
 
     {% if uikit_anchor != "NSLayoutDimension" %}

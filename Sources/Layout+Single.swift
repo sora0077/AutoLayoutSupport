@@ -58,6 +58,7 @@ public extension Layout where Anchors == NSLayoutYAxisAnchor {
 
 // MARK: - NSLayoutDimension
 public extension Layout where Anchors == NSLayoutDimension {
+    @discardableResult
     func content(hugging: UILayoutPriority? = nil, compressionResistance: UILayoutPriority? = nil) -> Layout<Anchors> {
         guard let axis = axis else { return self }
         if let hugging = hugging {
